@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /Users/udaybk/CLionProjects/Programming/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -109,6 +109,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named job_sequencing
+
+# Build rule for target.
+job_sequencing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 job_sequencing
+.PHONY : job_sequencing
+
+# fast build rule for target.
+job_sequencing/fast:
+	$(MAKE) -f CMakeFiles/job_sequencing.dir/build.make CMakeFiles/job_sequencing.dir/build
+.PHONY : job_sequencing/fast
 
 #=============================================================================
 # Target rules for targets named activity_selection
@@ -203,6 +216,33 @@ binary_tree.cpp.s:
 	$(MAKE) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/binary_tree.cpp.s
 .PHONY : binary_tree.cpp.s
 
+job_sequencing.o: job_sequencing.cpp.o
+
+.PHONY : job_sequencing.o
+
+# target to build an object file
+job_sequencing.cpp.o:
+	$(MAKE) -f CMakeFiles/job_sequencing.dir/build.make CMakeFiles/job_sequencing.dir/job_sequencing.cpp.o
+.PHONY : job_sequencing.cpp.o
+
+job_sequencing.i: job_sequencing.cpp.i
+
+.PHONY : job_sequencing.i
+
+# target to preprocess a source file
+job_sequencing.cpp.i:
+	$(MAKE) -f CMakeFiles/job_sequencing.dir/build.make CMakeFiles/job_sequencing.dir/job_sequencing.cpp.i
+.PHONY : job_sequencing.cpp.i
+
+job_sequencing.s: job_sequencing.cpp.s
+
+.PHONY : job_sequencing.s
+
+# target to generate assembly for a file
+job_sequencing.cpp.s:
+	$(MAKE) -f CMakeFiles/job_sequencing.dir/build.make CMakeFiles/job_sequencing.dir/job_sequencing.cpp.s
+.PHONY : job_sequencing.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -236,8 +276,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... job_sequencing"
+	@echo "... rebuild_cache"
 	@echo "... activity_selection"
 	@echo "... binary_tree"
 	@echo "... Programming"
@@ -247,6 +288,9 @@ help:
 	@echo "... binary_tree.o"
 	@echo "... binary_tree.i"
 	@echo "... binary_tree.s"
+	@echo "... job_sequencing.o"
+	@echo "... job_sequencing.i"
+	@echo "... job_sequencing.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
