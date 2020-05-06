@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named activity_selection
+
+# Build rule for target.
+activity_selection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 activity_selection
+.PHONY : activity_selection
+
+# fast build rule for target.
+activity_selection/fast:
+	$(MAKE) -f CMakeFiles/activity_selection.dir/build.make CMakeFiles/activity_selection.dir/build
+.PHONY : activity_selection/fast
+
+#=============================================================================
 # Target rules for targets named binary_tree
 
 # Build rule for target.
@@ -135,6 +148,33 @@ Programming: cmake_check_build_system
 Programming/fast:
 	$(MAKE) -f CMakeFiles/Programming.dir/build.make CMakeFiles/Programming.dir/build
 .PHONY : Programming/fast
+
+activity_selection.o: activity_selection.cpp.o
+
+.PHONY : activity_selection.o
+
+# target to build an object file
+activity_selection.cpp.o:
+	$(MAKE) -f CMakeFiles/activity_selection.dir/build.make CMakeFiles/activity_selection.dir/activity_selection.cpp.o
+.PHONY : activity_selection.cpp.o
+
+activity_selection.i: activity_selection.cpp.i
+
+.PHONY : activity_selection.i
+
+# target to preprocess a source file
+activity_selection.cpp.i:
+	$(MAKE) -f CMakeFiles/activity_selection.dir/build.make CMakeFiles/activity_selection.dir/activity_selection.cpp.i
+.PHONY : activity_selection.cpp.i
+
+activity_selection.s: activity_selection.cpp.s
+
+.PHONY : activity_selection.s
+
+# target to generate assembly for a file
+activity_selection.cpp.s:
+	$(MAKE) -f CMakeFiles/activity_selection.dir/build.make CMakeFiles/activity_selection.dir/activity_selection.cpp.s
+.PHONY : activity_selection.cpp.s
 
 binary_tree.o: binary_tree.cpp.o
 
@@ -198,8 +238,12 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... activity_selection"
 	@echo "... binary_tree"
 	@echo "... Programming"
+	@echo "... activity_selection.o"
+	@echo "... activity_selection.i"
+	@echo "... activity_selection.s"
 	@echo "... binary_tree.o"
 	@echo "... binary_tree.i"
 	@echo "... binary_tree.s"

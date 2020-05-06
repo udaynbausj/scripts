@@ -53,12 +53,14 @@ CMAKE_BINARY_DIR = /Users/udaybk/CLionProjects/Programming/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/activity_selection.dir/all
 all: CMakeFiles/binary_tree.dir/all
 all: CMakeFiles/Programming.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
+clean: CMakeFiles/activity_selection.dir/clean
 clean: CMakeFiles/binary_tree.dir/clean
 clean: CMakeFiles/Programming.dir/clean
 
@@ -70,13 +72,40 @@ preinstall:
 .PHONY : preinstall
 
 #=============================================================================
+# Target rules for target CMakeFiles/activity_selection.dir
+
+# All Build rule for target.
+CMakeFiles/activity_selection.dir/all:
+	$(MAKE) -f CMakeFiles/activity_selection.dir/build.make CMakeFiles/activity_selection.dir/depend
+	$(MAKE) -f CMakeFiles/activity_selection.dir/build.make CMakeFiles/activity_selection.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/udaybk/CLionProjects/Programming/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target activity_selection"
+.PHONY : CMakeFiles/activity_selection.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/activity_selection.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/udaybk/CLionProjects/Programming/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/activity_selection.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/udaybk/CLionProjects/Programming/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/activity_selection.dir/rule
+
+# Convenience name for target.
+activity_selection: CMakeFiles/activity_selection.dir/rule
+
+.PHONY : activity_selection
+
+# clean rule for target.
+CMakeFiles/activity_selection.dir/clean:
+	$(MAKE) -f CMakeFiles/activity_selection.dir/build.make CMakeFiles/activity_selection.dir/clean
+.PHONY : CMakeFiles/activity_selection.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/binary_tree.dir
 
 # All Build rule for target.
 CMakeFiles/binary_tree.dir/all:
 	$(MAKE) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/depend
 	$(MAKE) -f CMakeFiles/binary_tree.dir/build.make CMakeFiles/binary_tree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/udaybk/CLionProjects/Programming/cmake-build-debug/CMakeFiles --progress-num=3,4 "Built target binary_tree"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/udaybk/CLionProjects/Programming/cmake-build-debug/CMakeFiles --progress-num=5,6 "Built target binary_tree"
 .PHONY : CMakeFiles/binary_tree.dir/all
 
 # Build rule for subdir invocation for target.
