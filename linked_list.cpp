@@ -9,13 +9,11 @@ struct node{
     int data;
     node* next;
 };
-node* head;
-void printList();
 
-void createList(){
+node* createList(node* head){
     char choice;
     node* n = new node;
-    node* temp;
+    node* temp = nullptr;
     do{
         if(head== nullptr){
             cout<<"\nEnter the data into the head : ) ";
@@ -34,9 +32,10 @@ void createList(){
         cout<<"\nDo you want to add more nodes ? ";
         cin>>choice;
     }while(choice!='n');
+    return head;
 }
 
-void insertAtBeginning(){
+void insertAtBeginning(node* head){
     char choice;
     do{
         node* n = new node;node* temp;
@@ -58,7 +57,7 @@ void insertAtBeginning(){
     }while(choice!='n');
 }
 
-void insertAtEnd(){
+void insertAtEnd(node* head){
     char choice;
     do{
         node* n = new node;
@@ -87,7 +86,7 @@ void insertAtEnd(){
     }while(choice!='n');
 }
 
-void deleteNodeAtGivenPosition(){
+void deleteNodeAtGivenPosition(node* head){
     cout<<"Enter the position to delete the node : ";
     int position;cin>>position;
     //position is index+1;
@@ -101,10 +100,9 @@ void deleteNodeAtGivenPosition(){
     prev->next = curr->next;
     curr->next = nullptr;
     free(curr);
-    printList();
 }
 
-void printList(){
+void printList(node* head){
     node* n  = head;
     while(n!=nullptr){
         cout<<n->data<<" ";
@@ -112,7 +110,7 @@ void printList(){
     }
 }
 
-void reverse_list() {
+void reverse_list(node* head) {
     if (head == nullptr)
         return;
     node* prev , *curr;
@@ -129,14 +127,51 @@ void reverse_list() {
     head = prev;
 }
 
+node* add_two_lists(node* head1 , node* head2) {
+    if (head1 == nullptr && head2 == nullptr) {
+        return nullptr;
+    }
+    node* temp1 = head1 , *temp2 = head2;
+    node* new_node , *temp = nullptr, *head = nullptr;
+    int carry = 0 , sum = 0;
+    while(temp1 != nullptr ||  temp2 != nullptr) {
+        if (temp1 != nullptr) {
+            sum = sum + temp1->data;
+            temp1 = temp1->next;
+        }
+        if (temp2 != nullptr) {
+            sum = sum + temp2->data;
+            temp2 = temp2->next;
+        }
+        sum = sum + carry;
+        new_node = new node();
+        new_node->data = sum%10;
+        new_node->next = nullptr;
+        if (head == nullptr) {
+            head = new_node;
+            temp = new_node;
+        } else {
+            temp->next = new_node;
+            temp = new_node;
+        }
+        carry = sum / 10;
+        sum=0;
+    }
+    if (carry != 0) {
+        new_node = new node();
+        new_node->data = carry;
+        temp->next = new_node;
+        temp = new_node;
+    }
+    return head;
+};
+
 int main(){
-    createList();
-    printList();
-    insertAtBeginning();
-    printList();
-    insertAtEnd();
-    printList();
-    reverse_list();
-    printList();
-    deleteNodeAtGivenPosition();
+    node* head1 = nullptr;
+    node* head2 = nullptr;
+    head1 = createList(head1);
+    head2 = createList(head2);
+    node* head = add_two_lists(head1 , head2);
+    reverse_list(head);
+    printList(head);
 }
