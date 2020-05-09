@@ -17,17 +17,17 @@ void createList(){
     node* n = new node;
     node* temp;
     do{
-        if(head==NULL){
+        if(head== nullptr){
             cout<<"\nEnter the data into the head : ) ";
             cin>>n->data;
-            n->next = NULL;
+            n->next = nullptr;
             head = n;
             temp = head;
         }else{
             cout<<"\nEnter the data to place in node : ";
             node* n = new node;
             cin>>n->data;
-            n->next = NULL;
+            n->next = nullptr;
             temp->next = n;
             temp = n;
         }
@@ -40,11 +40,11 @@ void insertAtBeginning(){
     char choice;
     do{
         node* n = new node;node* temp;
-        if(head==NULL){
+        if(head==nullptr){
             cout<<"\nHead is Null : ), so pushing data to head .";
             cout<<"\nEnter data to insert at head : ";
             cin>>n->data;
-            n->next = NULL;
+            n->next = nullptr;
             head = n;
             temp = head;
         }else{
@@ -63,19 +63,19 @@ void insertAtEnd(){
     do{
         node* n = new node;
         node* temp;
-        if(head==NULL){
+        if(head== nullptr){
             cout<<"\nHead node is null :";
             cout<<"\nEnter the data to insert at head : ";
             cin>>n->data;
-            n->next = NULL;
+            n->next = nullptr;
             head = n;
             temp = head;
         }else{
             cout<<"\nEnter the data to insert at end of linkedlist : )";
             cin>>n->data;
-            n->next = NULL;
+            n->next = nullptr;
             temp = head;
-            while(temp->next!=NULL){
+            while(temp->next!= nullptr){
                 temp = temp->next;
             }
             //now temp->next will be pointing at the NULL;
@@ -85,23 +85,6 @@ void insertAtEnd(){
         cout<<"\nDo you want to enter more ? ";
         cin>>choice;
     }while(choice!='n');
-}
-
-
-void reverseLinkedList(){
-    cout<<"\n*****REVERSING THE LINKEDLIST*****\n";
-    node* prev,*curr;
-    prev = head;
-    head = head->next;
-    curr = head;
-    prev->next = NULL;
-    while(head!=NULL){
-        head = head->next;
-        curr->next = prev;
-        prev = curr;
-        curr = head;
-    }
-    head = prev;
 }
 
 void deleteNodeAtGivenPosition(){
@@ -116,17 +99,34 @@ void deleteNodeAtGivenPosition(){
     }
     cout<<"\nDeleted node is  : "<<curr->data;
     prev->next = curr->next;
-    curr->next = NULL;
+    curr->next = nullptr;
     free(curr);
     printList();
 }
 
 void printList(){
     node* n  = head;
-    while(n!=NULL){
+    while(n!=nullptr){
         cout<<n->data<<" ";
         n = n->next;
     }
+}
+
+void reverse_list() {
+    if (head == nullptr)
+        return;
+    node* prev , *curr;
+    prev = head;
+    head = head->next;
+    curr = head;
+    prev->next = nullptr;
+    while(head != nullptr) {
+        head = head->next;
+        curr->next = prev;
+        prev = curr;
+        curr = head;
+    }
+    head = prev;
 }
 
 int main(){
@@ -136,7 +136,7 @@ int main(){
     printList();
     insertAtEnd();
     printList();
-    reverseLinkedList();
+    reverse_list();
     printList();
     deleteNodeAtGivenPosition();
 }
