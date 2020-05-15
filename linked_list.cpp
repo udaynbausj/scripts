@@ -3,6 +3,8 @@
 //
 
 #include<iostream>
+#include<map>
+#include<queue>
 using namespace std;
 
 struct node{
@@ -174,4 +176,5 @@ int main(){
     node* head = add_two_lists(head1 , head2);
     reverse_list(head);
     printList(head);
+    string s;
 }
