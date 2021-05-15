@@ -26,7 +26,7 @@ public:
 
                         // sort here
                         vector<int> res = {-1 * sum, nums[i], nums[j]};
-                        sort_array_of_size_3(&res);
+                        res = sort_array_of_size_3(res);
                         string final_str;
                         for (int k = 0 ; k < res.size() ; k++) {
                             final_str = final_str + to_string(res[k]);
@@ -49,7 +49,7 @@ public:
         return result;
     }
 
-    vector<int> sort_array_of_size_3(vector<int> &arr) {
+    vector<int> sort_array_of_size_3(vector<int> arr) {
         if (arr[0] > arr[1])
             swap(arr[0], arr[1]);
         if (arr[0] > arr[2])
