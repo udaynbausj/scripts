@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
-#include<set>
-#include<map>
+#include<unordered_set>
+#include<unordered_map>
 #include<string>
 #include<algorithm>
 
@@ -13,11 +13,11 @@ public:
         
         int target = 0;
         vector<vector<int>>result;
-        map<string,bool>mp;
+        unordered_map<string,bool>mp;
         string str;
         for( int i = 0 ; i < nums.size() ; i++) {
-            set<int>s;
-            for (int j = 0 ; j < nums.size() ; j++) {
+            unordered_set<int>s;
+            for (int j = i+1 ; j < nums.size() ; j++) {
             
                 if ( i != j) {
                     
@@ -56,6 +56,7 @@ public:
             swap(arr[0], arr[2]);
         if (arr[1] > arr[2])
             swap(arr[1], arr[2]);
+        return arr;
     }
 
 };
